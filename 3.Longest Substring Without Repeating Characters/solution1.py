@@ -5,22 +5,15 @@ class Solution:
 			return 0
 		if len(s) == 1:
 			return 1
-		# xzaxog
 		for i in range(len(s)):
-			j = i
+			j = i + length
 			while j < len(s):
 				temps = self.isRepeatString(s[i:j + 1])
 				temple = j - i + 1
 				if temps == 1 and length < temple:
 					length = temple
 				print(i, j, s[i:j + 1], temps)
-				j += length
-				if j >= len(s):
-					temps = self.isRepeatString(s[i:len(s)])
-					temple = len(s) - i
-					if temps == 1 and length < temple:
-						length = temple
-					break;
+				j += 1
 
 		return length
 
@@ -35,4 +28,3 @@ class Solution:
 
 
 s = Solution();
-print(s.lengthOfLongestSubstring("abcb"))
